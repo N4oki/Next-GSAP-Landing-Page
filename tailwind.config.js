@@ -8,7 +8,7 @@ module.exports = {
       primary: "#3490dc",
       intro: "#ffeed9",
       slider: "#d6ae7b",
-      background: "#FCEFDB",
+      background: "#fff5e6",
     }),
     extend: {
       backgroundImage: {
