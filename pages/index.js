@@ -16,9 +16,11 @@ export default function Home() {
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
     const textRefs = textRef.current.querySelectorAll("span");
+    const introRefs = introRef.current.querySelectorAll("#intro");
     tl.to(textRefs, { y: "0%", duration: 1, stagger: 0.3 });
     tl.to(sliderRef.current, { y: "-100%", duration: 1.5, delay: 0.5 });
-    tl.to(introRef.current, { y: "-100%", duration: 1 }, "-=1.5");
+    tl.to(introRefs, { y: "-100%", duration: 1, stagger: 0.3 }, "-=.5");
+    tl.to(introRef.current, { y: "-100%", duration: 0.1 }); // to be possible to click
     tl.fromTo(navRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
     tl.fromTo(bigText.current, { opacity: 0 }, { opacity: 1, duration: 1 });
   }, []);
@@ -49,28 +51,32 @@ export default function Home() {
           <div className=" max-w-7xl  w-11/12 my-12 mx-auto ">
             <div
               ref={introRef}
-              className=" bg-intro fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center"
+              className="grid grid-cols-3 fixed top-0 left-0 w-full h-full"
             >
+              <div id="intro" className="bg-background"></div>
               <div
-                className=" text-3xl md:text-4xl font-bold font-Script text-center "
-                ref={textRef}
+                id="intro"
+                className="bg-background grid place-items-center text-3xl md:text-4xl font-bold font-Script text-center"
               >
-                <h1 className="bg-background overflow-hidden">
-                  <span className="transform translate-y-full inline-block">
-                    Explore the Tasmania
-                  </span>
-                </h1>
-                <h1 className="bg-background overflow-hidden">
-                  <span className="transform translate-y-full inline-block">
-                    Some text here
-                  </span>
-                </h1>
-                <h1 className="bg-background overflow-hidden">
-                  <span className="transform translate-y-full inline-block">
-                    And some more.
-                  </span>
-                </h1>
+                <div ref={textRef}>
+                  <h1 className="bg-background overflow-hidden">
+                    <span className="transform translate-y-full inline-block">
+                      Explore the Tasmania
+                    </span>
+                  </h1>
+                  <h1 className="bg-background overflow-hidden">
+                    <span className="transform translate-y-full inline-block">
+                      Some text here
+                    </span>
+                  </h1>
+                  <h1 className="bg-background overflow-hidden">
+                    <span className="transform translate-y-full inline-block">
+                      And some more.
+                    </span>
+                  </h1>
+                </div>
               </div>
+              <div id="intro" className="bg-background"></div>
             </div>
           </div>
           <div
