@@ -1,11 +1,12 @@
 import { gsap } from "gsap";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { contents } from "../utils/data";
 
 const MainContents = () => {
   const itemsRef = useRef([]);
+  const [counter, setCounter] = useState(0);
 
-  const callbackFunction = (entries) => {
+  const callbackFunction = (entries, observer) => {
     const [entry] = entries;
     if (entry.isIntersecting) {
       const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
@@ -21,8 +22,13 @@ const MainContents = () => {
         opacity: "1",
         duration: 1,
       });
+
+      observer.unobserve(itemsRef.current[counter]);
+      if (counter === contents.length - 1) return;
+      setCounter((prevNum) => prevNum + 1);
     }
   };
+
   const options = {
     root: null,
     rootMargin: "0px",
@@ -31,17 +37,8 @@ const MainContents = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(callbackFunction, options);
-
-    Array.from(itemsRef.current).map((item) => {
-      if (item) observer.observe(item);
-    });
-
-    return () => {
-      Array.from(itemsRef.current).map((item) => {
-        if (item) observer.unobserve(item);
-      });
-    };
-  }, [itemsRef.current, options]);
+    if (itemsRef) observer.observe(itemsRef.current[counter]);
+  });
 
   return (
     <main className="max-w-5xl w-11/12  my-12 mx-auto">

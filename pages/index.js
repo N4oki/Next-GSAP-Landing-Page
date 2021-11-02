@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-import Head from "next/head";
 
 import Navbar from "../components/Navbar";
 import HeroText from "../components/HeroText";
@@ -25,14 +24,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <div>
         <div className="flex flex-col bg-hero-image z-0 w-screen h-screen  bg-cover bg-center  max-w-7xl  mx-auto">
           <nav className=" p-3 flex justify-between sm:px-8" ref={navRef}>
@@ -47,29 +38,27 @@ export default function Home() {
           </div>
 
           <div className=" max-w-7xl  w-11/12 my-12 mx-auto ">
-            <div className=" grid fixed top-0 left-0 w-full h-full">
-              <div
-                id="intro"
-                ref={introRef}
-                className="bg-background grid h-full w-full place-items-center text-3xl md:text-4xl font-bold font-Script text-center"
-              >
-                <div ref={textRef}>
-                  <h1 className="bg-background overflow-hidden">
-                    <span className="transform translate-y-full inline-block">
-                      Explore the Tasmania
-                    </span>
-                  </h1>
-                  <h1 className="bg-background overflow-hidden">
-                    <span className="transform translate-y-full inline-block">
-                      Some text here
-                    </span>
-                  </h1>
-                  <h1 className="bg-background overflow-hidden">
-                    <span className="transform translate-y-full inline-block">
-                      And some more.
-                    </span>
-                  </h1>
-                </div>
+            <div
+              id="intro"
+              ref={introRef}
+              className=" bg-background grid place-items-center fixed top-0 left-0 h-full w-full text-3xl md:text-4xl font-bold font-Script text-center"
+            >
+              <div ref={textRef}>
+                <h1 className="bg-background overflow-hidden">
+                  <span className="transform translate-y-full inline-block">
+                    Explore the Tasmania
+                  </span>
+                </h1>
+                <h1 className="bg-background overflow-hidden">
+                  <span className="transform translate-y-full inline-block">
+                    Some text here
+                  </span>
+                </h1>
+                <h1 className="bg-background overflow-hidden">
+                  <span className="transform translate-y-full inline-block">
+                    And some more.
+                  </span>
+                </h1>
               </div>
             </div>
           </div>

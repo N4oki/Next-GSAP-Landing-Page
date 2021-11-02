@@ -1,12 +1,13 @@
+import Link from "next/link";
 import { navItems } from "../utils/data";
 
 const Navbar = () => {
   return (
     <>
       <div>
-        <a href="/">
-          <h1 className="font-Script font-bold  text-3xl">Tasmania</h1>
-        </a>
+        <Link href="/">
+          <a className="font-Script font-bold  text-3xl">Tasmania</a>
+        </Link>
       </div>
 
       <ul className="sm:flex sm:flex-1 sm:justify-end sm:gap-4 font-Script text-xl hidden">
