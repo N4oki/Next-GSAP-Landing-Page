@@ -12,8 +12,10 @@ module.exports = {
     }),
     extend: {
       backgroundImage: {
-        "hero-image":
-          "url('https://res.cloudinary.com/deevlog/image/upload/c_scale,q_91,w_1280/v1635724348/lp-tas-hero_miuxmh.jpg')",
+        "hero-image-md":
+          "url('https://res.cloudinary.com/deevlog/image/upload/c_scale,h_960,w_1024/v1635724348/lp-tas-hero_miuxmh.jpg')",
+        "hero-image-lg":
+          "url('https://res.cloudinary.com/deevlog/image/upload/c_scale,h_960,w_1440/v1635724348/lp-tas-hero_miuxmh.jpg')",
       },
       keyframes: {
         arrow: {

@@ -25,8 +25,11 @@ export default function Home() {
   return (
     <>
       <div>
-        <div className="flex flex-col bg-hero-image z-0 w-screen h-screen  bg-cover bg-center  max-w-7xl  mx-auto">
-          <nav className=" p-3 flex justify-between sm:px-8" ref={navRef}>
+        <div className="flex flex-col bg-hero-image-md xl:bg-hero-image-md  z-0 w-screen h-screen  bg-cover bg-center  max-w-screen-2xl mx-auto ">
+          <nav
+            className=" p-3 flex justify-between sm:px-8 w-full max-w-7xl mx-auto"
+            ref={navRef}
+          >
             <Navbar />
           </nav>
 
